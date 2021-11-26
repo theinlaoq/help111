@@ -1,0 +1,25 @@
+import math
+def race(v1, v2, g):
+    if v1 > v2:
+        return None
+    else:
+        v = v2 - v1
+        vm = v / 60
+        vs = vm / 60
+        hour = math.floor(g / v)
+        if hour < 1:
+            hour = 0
+            g1 = g
+            mint =  math.floor(g1 / vm)
+        elif hour > 1:
+            g1 = g - v * hour
+            mint = math.floor(g1 / vm)
+        if mint < 1:
+            mint = 0
+            g2 = g1
+            sec = math.floor(g2 / vs)
+        elif mint > 1:
+            g2 = g1 - vm * mint
+            sec = math.floor(g2 / vs)
+        return [hour, mint, sec]
+        
